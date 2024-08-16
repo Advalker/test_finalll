@@ -1,9 +1,10 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from features.elementos import *
 
 class LoginPage:
-    URL = 'https://www.udemy.com/join/login-popup/'
+    URL = URL_LINKDIN
     
     def __init__(self, browser: webdriver):
         self.browser = browser
@@ -12,22 +13,18 @@ class LoginPage:
         # Abre a página de login
         self.browser.get(self.URL)
 
-    def enter_username(self, username):
-        # Localiza o campo de email pelo ID usando By e insere o valor fornecido
-        username_field = self.browser.find_element(By.ID, 'form-group--1')
-        username_field.clear()  # Limpa qualquer valor existente
-        username_field.send_keys(username)
-        time.sleep(3)
+    def enter_username(self):        
+        username_field = self.browser.find_element(By.ID, 'username')
+        username_field.send_keys(EMAIL_LOGIN) # recebe o email do arquivo em elementos
+        time.sleep(2)
+        password_field = self.browser.find_element(By.ID, 'password')
+        password_field.send_keys(SENHA_LOGIN) # recebe senha do arquivo em elementos
+        time.sleep(2)
 
-    def enter_password(self, password):
-        # Localiza o campo de senha pelo ID usando By e insere o valor fornecido
-        password_field = self.browser.find_element(By.ID, 'form-group--3')
-        password_field.clear()  # Limpa qualquer valor existente
-        password_field.send_keys(password)
-        time.sleep(3)
+    
     def click_login_button(self):
         # Localiza o botão de login pelo ID usando By e clica nele
-        login_button = self.browser.find_element(By.XPATH, "/html/body/div[1]/div[1]/div[3]/nav/button/span")
+        login_button = self.browser.find_element(By.XPATH, BTN_LOGIN)
         login_button.click()
         time.sleep(10)
 
