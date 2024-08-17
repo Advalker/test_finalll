@@ -1,12 +1,12 @@
 URL_LINKDIN = "https://www.linkedin.com/checkpoint/rm/sign-in-another-account?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin"
 
-EMAIL = "advalker12@gmail.com"
+EMAIL = "advalker@gmail.com"
 
 CAMPO_EMAIL = "username"
 
 CAMPO_SENHA = "password"
 
-SENHA = "@416647Valker"
+SENHA = "************"
 
 BTN_LOGIN= "/html/body/div/main/div[2]/div[1]/form/div[3]/button"
 
