@@ -1,17 +1,21 @@
-Feature: Login na página da Linkedin
-  Como um usuário
-  Eu quero fazer login na página da Udemy
-  Para que eu possa acessar minha conta
+Feature: Login  logoff no Linkedin e test sem senha
+  
   @TestLogin
-  Scenario: Login com sucesso
-    Given que estou na página de login
-    When eu insiro o email e senha corretos
-    And clico no botão de login
-    Then eu devo ser redirecionado para a página inicial
+  Scenario: Login com credencias corretas
+    Given que o usuário está na página de login
+    When é inserido insere email e senha corretos
+    Then clica no botão de login e será redirecionado para a página inicial
   
   @TestErroLogin 
-  Scenario: Login com email invalido
-    Given que o usuário está na página de login
-    When Quando ele insere um email inválido 
+  Scenario: Verifica campo senha vazio
+    Given dado que o usuário está na página de login
+    When Quando ele insere um email 
     And clica no botão login
-    Then Então uma mensagem de erro informando que o email é inválido é exibida
+    Then a mensagem "Insira uma senha." deverá ser exibida
+
+  @TestLogout
+  Scenario: Logout
+    Given o usuário está na página de login 
+    When Quando ele insere email e senha corretos 
+    And clica no botão de login e será redirecionado para a página inicial
+    Then depois faz o logout
